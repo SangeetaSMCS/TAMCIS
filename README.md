@@ -1,6 +1,6 @@
 # TAMCIS
 The Trajectory Analysis of Multidimensional Chemical Interaction Space (TAMCIS) is a systematic approach to deal with multidimeansional order parameter space
-for the entire trajectory. It mainly tries to annote the trajeotory data in the chosen p-dimensional space ($/Gamma$ space) by filtering out the time homogeneous fluctuations.
+for the entire trajectory. It mainly tries to annote the trajeotory data in the chosen p-dimensional space ($\Gamma$ space) by filtering out the time homogeneous fluctuations.
 The workflow for TAMCIS is given as follows:
 
 1. Assumping that single molecule-wise chemical interactions are already calculated for entire trajectory length and stored in a organized format in a folder name "iii" for say tri-Isoleucine system
