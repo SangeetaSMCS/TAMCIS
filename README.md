@@ -9,7 +9,7 @@ The workflow for TAMCIS is given as follows:
 2. Determination of order parameters in $\Gamma$ space and value of p.  This involved data extraction in xyz format :
  XYZ file : peptide_name pep_H_end_end_contact pep_H_end_mid_contact pep_H_mid_mid_contact sidechain_pep_contact time [ order parameter list with time]
 ```bash
-# EDIT IN LINE 290-299
+# EDIT IN LINE 311-319
 python3 multi_D_OP_data_extraction_trajectory_xyz_general_v2.py 
 ```
 Input : peptide name, base_interaction_json, fiber_seganme_json, frame_end
@@ -30,9 +30,10 @@ OUTPUT : input_TAMCIS.json , This file store every information so further TAMCIS
    # EDIT AT LINE : 10 
    python3 manual_binning_parameters_general_v1.py
   
-5. Clustering on the binned data :
+5. Clustering on the binned data : 
 ```bash
-python3 clustering_multi_D_binned_data_general_v3.py ```
+# Copy the input_TAMCIS.json and XXX_BINNED.dat file formed after binning : to the location where clustering script is executed [Specification: High Memory]
+python3 clustering_multi_D_binned_data_general_v3.py 
 ```
 5. Obtain organized json file
 ```bash
