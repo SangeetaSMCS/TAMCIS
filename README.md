@@ -32,8 +32,9 @@ OUTPUT : input_TAMCIS.json , This file store every information so further TAMCIS
   
 5. Clustering on the binned data : 
 ```bash
-# Copy the input_TAMCIS.json and XXX_BINNED.dat file formed after binning : to the location where clustering script is executed [Specification: High Memory]
-python3 clustering_multi_D_binned_data_general_v3.py 
+# Copy the input_TAMCIS.json and XXX_BINNED.dat file formed after binning : to the location where clustering script is executed [High Memory Computation]
+python3 clustering_multi_D_binned_data_general_v3.py
+# COPY to your analysis location : output cluster dat file and ALSO the input_TAMCIS.json [this file have been updated]
 ```
 5. Obtain organized json file
 ```bash
