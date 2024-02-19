@@ -48,7 +48,7 @@ python3 step5_organize_cluster_general.py
 # LINE 52-53 provide the peptide name and num_frame
 python3 step6_sizewise_cluster_gather.py
 ```
-NOTE : This calculation of in Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
+NOTE : This calculation is done on Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
 Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 
 
@@ -58,5 +58,8 @@ Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 python3 post_processing_stray_info_remove_v1.py
 ```
 
-11. check_postprocess.py
+9. General check for any mismatch and just run this code 
+```bash
+python3 check_postprocess.py
+```
 12. 
