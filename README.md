@@ -10,7 +10,7 @@ The workflow for TAMCIS is given as follows:
  XYZ file : peptide_name pep_H_end_end_contact pep_H_end_mid_contact pep_H_mid_mid_contact sidechain_pep_contact time [ order parameter list with time]
 ```bash
 # EDIT IN LINE 311-319
-python3 multi_D_OP_data_extraction_trajectory_xyz_general_v2.py 
+python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
 ```
 Input : peptide name, base_interaction_json, fiber_seganme_json, frame_end
         parameters_list = ["pep_H_end_end_contact","pep_H_end_middle_contact","pep_H_middle_middle_contact","sidechain_pep_contact"]
@@ -21,27 +21,34 @@ OUTPUT : input_TAMCIS.json , This file store every information so further TAMCIS
 3. Look into time independent dataset of the all molecule for each order parameter seperately for taking decision about the manual bining step:
    Bar plot of the entire dataset. IT WILL TAKE INPUT "input_TAMCIS.json" automatically. JUST RUN the code
    ```bash
-   python3 analysis_for_binning_parameter_v1.py
+   python3 step2_analysis_for_binning_parameter.py
    ```
 4. Manually bin each parameter in a chemically meaningful way.
    INPUT : INSIDE CODE mention the binning for individual order parameter, as the INDEX OF THE ORDER PARAMETER STARTS FROM 1 and store in dictionary formate
     
    ```bash
    # EDIT AT LINE : 10 
-   python3 manual_binning_parameters_general_v1.py
+   python3 step3_manual_binning_parameters_general.py
   
 5. Clustering on the binned data : 
 ```bash
 # Copy the input_TAMCIS.json and XXX_BINNED.dat file formed after binning : to the location where clustering script is executed [High Memory Computation]
 # maruti : node 37-43
 module load codes/python-3.9.15
-python3 clustering_multi_D_binned_data_general_v3.py
+python3 step4_clustering_multi_D_binned_data_general.py
 # COPY to your analysis location : output cluster dat file and ALSO the input_TAMCIS.json [this file have been updated]
 ```
-6. Organize the clustering data  json file
+6. Organize the clustering data  to json file format
 ```bash
-python3 DBSCAN_organize_cluster_general_v3.py
+python3 step5_organize_cluster_general.py
 ```
-7. post_processing_stray_info_remove_v1.py
-8. check_postprocess.py
-9. 
+7. Extarct stray molecules information timewise
+```bash
+# LINE 52-53 provide the peptide name and num_frame
+python3 step6_sizewise_cluster_gather.py
+```
+NOTE : This calculation of in Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
+
+9. post_processing_stray_info_remove_v1.py
+10. check_postprocess.py
+11. 
