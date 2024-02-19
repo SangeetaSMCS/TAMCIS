@@ -52,6 +52,11 @@ NOTE : This calculation of in Argha's computer, example path : /media/argha/home
 Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 
 
-9. post_processing_stray_info_remove_v1.py
-10. check_postprocess.py
-11. 
+8. This post processing step where stray molecules are removed from the clusters
+```bash
+# LINE 184 : Provide a shortcut tag for output file  
+python3 post_processing_stray_info_remove_v1.py
+```
+
+11. check_postprocess.py
+12. 
