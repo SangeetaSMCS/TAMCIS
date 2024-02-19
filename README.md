@@ -20,16 +20,16 @@ OUTPUT : input_TAMCIS.json , This file store every information so further TAMCIS
 
 3. Look into time independent dataset of the all molecule for each order parameter seperately for taking decision about the manual bining step:
    Bar plot of the entire dataset. IT WILL TAKE INPUT "input_TAMCIS.json" automatically. JUST RUN the code
-   ```bash
-   python3 step2_analysis_for_binning_parameter.py
-   ```
+```bash
+python3 step2_analysis_for_binning_parameter.py
+```
 4. Manually bin each parameter in a chemically meaningful way.
    INPUT : INSIDE CODE mention the binning for individual order parameter, as the INDEX OF THE ORDER PARAMETER STARTS FROM 1 and store in dictionary formate
     
-   ```bash
-   # EDIT AT LINE : 10 
-   python3 step3_manual_binning_parameters_general.py
-  
+```bash
+# EDIT AT LINE : 10 
+python3 step3_manual_binning_parameters_general.py
+```  
 5. Clustering on the binned data : 
 ```bash
 # Copy the input_TAMCIS.json and XXX_BINNED.dat file formed after binning : to the location where clustering script is executed [High Memory Computation]
@@ -55,11 +55,11 @@ Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 8. This post processing step where stray molecules are removed from the clusters
 ```bash
 # LINE 184 : Provide a shortcut tag for output file  
-python3 post_processing_stray_info_remove_v1.py
+python3 step7_post_processing_stray_info_remove.py
 ```
 
-9. General check for any mismatch and just run this code 
+9. General sanity check for any mismatch and just run this code 
 ```bash
-python3 check_postprocess.py
+python3 step8_check_postprocess.py
 ```
-12. 
+10. 
