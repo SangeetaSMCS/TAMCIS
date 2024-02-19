@@ -36,8 +36,9 @@ OUTPUT : input_TAMCIS.json , This file store every information so further TAMCIS
 # maruti : node 37-43
 module load codes/python-3.9.15
 python3 step4_clustering_multi_D_binned_data_general.py
-# COPY to your analysis location : output cluster dat file and ALSO the input_TAMCIS.json [this file have been updated]
 ```
+NOTE : Copy to your analysis location : output cluster dat file and ALSO the input_TAMCIS.json [this file have been updated]
+
 6. Organize the clustering data  to json file format
 ```bash
 python3 step5_organize_cluster_general.py
@@ -48,6 +49,8 @@ python3 step5_organize_cluster_general.py
 python3 step6_sizewise_cluster_gather.py
 ```
 NOTE : This calculation of in Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
+Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
+
 
 9. post_processing_stray_info_remove_v1.py
 10. check_postprocess.py
