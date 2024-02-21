@@ -3,10 +3,10 @@ The Trajectory Analysis of Multidimensional Chemical Interaction Space (TAMCIS) 
 for the entire trajectory. It mainly tries to annote the trajeotory data in the chosen p-dimensional space ($\Gamma$ space) by filtering out the time homogeneous fluctuations.
 The workflow for TAMCIS is given as follows:
 
-1. Assumping that single molecule-wise chemical interactions are already calculated for entire trajectory length and stored in a organized format in a folder name "iii" for say tri-Isoleucine system
+ Assumping that single molecule-wise chemical interactions are already calculated for entire trajectory length and stored in a organized format in a folder name "iii" for say tri-Isoleucine system
    Example Folder Structure :
    
-2. Determination of order parameters in $\Gamma$ space and value of p.  This involved data extraction in xyz format :
+1. Determination of order parameters in $\Gamma$ space and value of p.  This involved data extraction in xyz format :
  XYZ file : peptide_name pep_H_end_end_contact pep_H_end_mid_contact pep_H_mid_mid_contact sidechain_pep_contact time [ order parameter list with time]
 ```bash
 # EDIT IN LINE 311-319
@@ -18,12 +18,12 @@ Input : peptide name, base_interaction_json, fiber_seganme_json, frame_end
  ---- It calls general_code.py
 OUTPUT : input_TAMCIS.json , This file store every information so further TAMCIS code take this file as INPUT 
 
-3. Look into time independent dataset of the all molecule for each order parameter seperately for taking decision about the manual bining step:
+2. Look into time independent dataset of the all molecule for each order parameter seperately for taking decision about the manual bining step:
    Bar plot of the entire dataset. IT WILL TAKE INPUT "input_TAMCIS.json" automatically. JUST RUN the code
 ```bash
 python3 step2_analysis_for_binning_parameter.py
 ```
-4. Manually bin each parameter in a chemically meaningful way.
+3. Manually bin each parameter in a chemically meaningful way.
    INPUT : INSIDE CODE mention the binning for individual order parameter, as the INDEX OF THE ORDER PARAMETER STARTS FROM 1 and store in dictionary formate
     
 ```bash
