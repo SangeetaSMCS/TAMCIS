@@ -107,6 +107,7 @@ python3 step11_heatmap_time_vs_class_clusters_filtered.py
 ```bash
 #INPUT : no manual input
 #OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg. "iii_CI_cluster_hop_count_chbsp.json"
+#ALERT : It is significant time consuming
 
 python3 step13_temporal_molecular_hopping_imp_classes.py
 ```
