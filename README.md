@@ -8,12 +8,12 @@ The workflow for TAMCIS is given as follows:
    
 1. Determination of order parameters in $\Gamma$ space and value of p.  This involved data extraction in xyz format :
  XYZ file : peptide_name pep_H_end_end_contact pep_H_end_mid_contact pep_H_mid_mid_contact sidechain_pep_contact time [ order parameter list with time]
-INPUT : peptide name, base_interaction_json, fiber_seganme_json, frame_end
-        parameters_list = ["pep_H_end_end_contact","pep_H_end_middle_contact","pep_H_middle_middle_contact","sidechain_pep_contact"]
 
- ---- It calls general_code.py
-OUTPUT : input_TAMCIS.json , This xyz file store every information so further TAMCIS code take this file as INPUT eg. "iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time.xyz"
 ```bash
+#INPUT : peptide name, base_interaction_json, fiber_seganme_json, frame_end
+#        parameters_list = ["pep_H_end_end_contact","pep_H_end_middle_contact","pep_H_middle_middle_contact","sidechain_pep_contact"]
+#---- It calls general_code.py
+#OUTPUT : input_TAMCIS.json , This xyz file store every information so further TAMCIS code take this file as INPUT eg. #"iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time.xyz"
 # EDIT IN LINE 290-319
 python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
 ```
