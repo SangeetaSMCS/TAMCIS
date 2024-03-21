@@ -8,31 +8,36 @@ The workflow for TAMCIS is given as follows:
    
 1. Determination of order parameters in $\Gamma$ space and value of p.  This involved data extraction in xyz format :
  XYZ file : peptide_name pep_H_end_end_contact pep_H_end_mid_contact pep_H_mid_mid_contact sidechain_pep_contact time [ order parameter list with time]
-```bash
-# EDIT IN LINE 311-319
-python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
-```
-Input : peptide name, base_interaction_json, fiber_seganme_json, frame_end
+INPUT : peptide name, base_interaction_json, fiber_seganme_json, frame_end
         parameters_list = ["pep_H_end_end_contact","pep_H_end_middle_contact","pep_H_middle_middle_contact","sidechain_pep_contact"]
 
  ---- It calls general_code.py
-OUTPUT : input_TAMCIS.json , This file store every information so further TAMCIS code take this file as INPUT 
+OUTPUT : input_TAMCIS.json , This xyz file store every information so further TAMCIS code take this file as INPUT eg. "iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time.xyz"
+```bash
+# EDIT IN LINE 290-319
+python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
+```
 
 2. Look into time independent dataset of the all molecule for each order parameter seperately for taking decision about the manual bining step:
    Bar plot of the entire dataset. IT WILL TAKE INPUT "input_TAMCIS.json" automatically. JUST RUN the code
+ INPUT : No manual input needed
+ OUPUT : png : "iii_analysis_4_bining_chbsc.png"
 ```bash
 python3 step2_analysis_for_binning_parameter.py
 ```
+
 3. Manually bin each parameter in a chemically meaningful way.
    INPUT : INSIDE CODE mention the binning for individual order parameter, as the INDEX OF THE ORDER PARAMETER STARTS FROM 1 and store in dictionary formate
-    
+   OUTPUT : updated input_TAMCIS.json and  the binned xyz file eg. "iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time_BINNED.xyz"
 ```bash
 # EDIT AT LINE : 10 
 python3 step3_manual_binning_parameters_general.py
 ```  
-5. Clustering on the binned data : 
+5. Clustering on the binned data :
+   INPUT : input_TAMCIS.json and XXX_BINNED.xyz
+   OUTPUT : updated input_TAMCIS.json and clustering dat file eg. "iii_cluster_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.dat"
 ```bash
-# Copy the input_TAMCIS.json and XXX_BINNED.dat file formed after binning : to the location where clustering script is executed [High Memory Computation]
+# Copy the input_TAMCIS.json and XXX_BINNED.xyz file formed after binning : to the location where clustering script is executed [High Memory Computation]
 # maruti : node 37-43
 module load codes/python-3.9.15
 python3 step4_clustering_multi_D_binned_data_general.py
