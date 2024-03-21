@@ -45,19 +45,22 @@ python3 step4_clustering_multi_D_binned_data_general.py
 NOTE : Copy to your analysis location : output cluster dat file and ALSO the input_TAMCIS.json [this file have been updated]
 
 6. Organize the clustering data  to json file format
+   INPUT : No manual input , it automatically takes input_TAMCIS.json
+   OUTPUT : Sorted clusters json file eg. "iii_cluster_sorted_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.json" and updated input_TAMCIS.json
 ```bash
 python3 step5_organize_cluster_general.py
 ```
 7. Extarct stray molecules information timewise
+NOTE : This calculation is done on Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
+Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 ```bash
 # LINE 52-53 provide the peptide name and num_frame
 python3 step6_sizewise_cluster_gather.py
 ```
-NOTE : This calculation is done on Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
-Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
-
 
 8. This post processing step where stray molecules are removed from the clusters
+   INPUT : shortcut tag, alphanumeric name and stray molecule information eg. "iii_all_cluster_of_size_1_1.json"
+   OUTPUT : clusters with alphanumeric name srored in json eg. "iii_cluster_alphanumeric_name_chbsp.json" and updated input_TAMCIS.json
 ```bash
 # LINE 184 : Provide a shortcut tag for output file  
 python3 step7_post_processing_stray_info_remove.py
