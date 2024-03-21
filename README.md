@@ -94,3 +94,12 @@ python3 step9_sort_gamma_clusters_bin_and_classes.py
 #-----------------------------
 python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py 
 ```
+12. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
+```bash
+#INPUT : percent_population ,cutoff_num_occurences, cutoff_num_mol_per_frame
+#OUTPUT : Heatmap plot eg. "iii_CI_cluster_heatmap_time_evolution_chbsp_v2.png"
+#------------------------
+# EDIT AT LINE 9-11
+#------------------------
+python3 step11_heatmap_time_vs_class_clusters_heatmap.py
+```
