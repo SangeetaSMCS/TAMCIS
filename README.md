@@ -74,6 +74,7 @@ python3 step7_post_processing_stray_info_remove.py
 
 9. General sanity check for any mismatch and just run this code 
 ```bash
+INPUT : No manual input need
 python3 step8_check_postprocess.py
 ```
 10. 
