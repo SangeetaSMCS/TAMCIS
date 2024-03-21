@@ -109,5 +109,20 @@ python3 step11_heatmap_time_vs_class_clusters_filtered.py
 #OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg. "iii_CI_cluster_hop_count_chbsp.json"
 #ALERT : It is significant time consuming
 
-python3 step13_temporal_molecular_hopping_imp_classes.py
+python3 step12_temporal_molecular_hopping_imp_classes.py
+```
+14. heatmap plot every molecule in the system temporal hopping in classes
+```bash
+#INPUT:No manual input
+#OUTPUT:png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
+python3 step13_all_molecular_hopping_plot_v1.py
+```
+15. heatmap plot selected molecule in the system temporal hopping in classes
+```bash
+#INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
+#OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
+#---------------------------
+#EDIT AT LINE 39-43, 84-91
+#--------------------------
+python3 step14_selected_molecular_hopping_plot_v1.py
 ```
