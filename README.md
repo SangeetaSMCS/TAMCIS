@@ -84,3 +84,10 @@ python3 step8_check_postprocess.py
 # EDIT AT LINE 110-117
 python3 step9_sort_gamma_clusters_bin_and_classes.py
 ```
+11. Classwise looking into the % population evalution of $\Gamma$ clusters 
+```bash
+#INPUT : Relative percentage population for heatmap dictionary for each class
+# For time being it has been set so no need to change
+#OUTPUT : $\leq 2^p-1$ Heatmap plots 
+python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py 
+```
