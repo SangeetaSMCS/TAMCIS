@@ -14,29 +14,33 @@ The workflow for TAMCIS is given as follows:
 #        parameters_list = ["pep_H_end_end_contact","pep_H_end_middle_contact","pep_H_middle_middle_contact","sidechain_pep_contact"]
 #---- It calls general_code.py
 #OUTPUT : input_TAMCIS.json , This xyz file store every information so further TAMCIS code take this file as INPUT eg. #"iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time.xyz"
+# -----------------------
 # EDIT IN LINE 290-319
+#------------------------
 python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
 ```
 
 2. Look into time independent dataset of the all molecule for each order parameter seperately for taking decision about the manual bining step:
    Bar plot of the entire dataset. IT WILL TAKE INPUT "input_TAMCIS.json" automatically. JUST RUN the code
- INPUT : No manual input needed
- OUPUT : png : "iii_analysis_4_bining_chbsc.png"
 ```bash
+ #INPUT : No manual input needed
+ #OUPUT : png : "iii_analysis_4_bining_chbsc.png"
 python3 step2_analysis_for_binning_parameter.py
 ```
 
 3. Manually bin each parameter in a chemically meaningful way.
-   INPUT : INSIDE CODE mention the binning for individual order parameter, as the INDEX OF THE ORDER PARAMETER STARTS FROM 1 and store in dictionary formate
-   OUTPUT : updated input_TAMCIS.json and  the binned xyz file eg. "iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time_BINNED.xyz"
 ```bash
-# EDIT AT LINE : 10 
+#INPUT : INSIDE CODE mention the binning for individual order parameter, as the INDEX OF THE ORDER PARAMETER STARTS FROM 1 and store in dictionary formate
+#OUTPUT : updated input_TAMCIS.json and  the binned xyz file eg. "iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time_BINNED.xyz"
+#-------------------
+# EDIT AT LINE : 10
+#-------------------
 python3 step3_manual_binning_parameters_general.py
 ```  
 5. Clustering on the binned data :
-   INPUT : input_TAMCIS.json and XXX_BINNED.xyz
-   OUTPUT : updated input_TAMCIS.json and clustering dat file eg. "iii_cluster_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.dat"
 ```bash
+#INPUT : input_TAMCIS.json and XXX_BINNED.xyz
+#OUTPUT : updated input_TAMCIS.json and clustering dat file eg. "iii_cluster_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.dat"
 # Copy the input_TAMCIS.json and XXX_BINNED.xyz file formed after binning : to the location where clustering script is executed [High Memory Computation]
 # maruti : node 37-43
 module load codes/python-3.9.15
@@ -45,9 +49,9 @@ python3 step4_clustering_multi_D_binned_data_general.py
 NOTE : Copy to your analysis location : output cluster dat file and ALSO the input_TAMCIS.json [this file have been updated]
 
 6. Organize the clustering data  to json file format
-   INPUT : No manual input , it automatically takes input_TAMCIS.json
-   OUTPUT : Sorted clusters json file eg. "iii_cluster_sorted_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.json" and updated input_TAMCIS.json
 ```bash
+#INPUT : No manual input , it automatically takes input_TAMCIS.json
+#OUTPUT : Sorted clusters json file eg. "iii_cluster_sorted_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.json" and updated input_TAMCIS.json
 python3 step5_organize_cluster_general.py
 ```
 7. Extarct stray molecules information timewise
@@ -59,10 +63,12 @@ python3 step6_sizewise_cluster_gather.py
 ```
 
 8. This post processing step where stray molecules are removed from the clusters
-   INPUT : shortcut tag, alphanumeric name and stray molecule information eg. "iii_all_cluster_of_size_1_1.json"
-   OUTPUT : clusters with alphanumeric name srored in json eg. "iii_cluster_alphanumeric_name_chbsp.json" and updated input_TAMCIS.json
 ```bash
-# LINE 184 : Provide a shortcut tag for output file  
+#INPUT : shortcut tag, alphanumeric name and stray molecule information eg. "iii_all_cluster_of_size_1_1.json"
+#OUTPUT : clusters with alphanumeric name srored in json eg. "iii_cluster_alphanumeric_name_chbsp.json" and updated input_TAMCIS.json
+#--------------------------------------------------
+# LINE 184 : Provide a shortcut tag for output file
+#--------------------------------------------------  
 python3 step7_post_processing_stray_info_remove.py
 ```
 
