@@ -97,9 +97,16 @@ python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py
 12. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
 ```bash
 #INPUT : percent_population ,cutoff_num_occurences, cutoff_num_mol_per_frame
-#OUTPUT : Heatmap plot eg. "iii_CI_cluster_heatmap_time_evolution_chbsp_v2.png"
+#OUTPUT : Heatmap plot eg. "iii_CI_cluster_heatmap_time_evolution_chbsp_v2.png", update input_TAMCIS.json with import prominent classes
 #------------------------
 # EDIT AT LINE 9-11
 #------------------------
-python3 step11_heatmap_time_vs_class_clusters_heatmap.py
+python3 step11_heatmap_time_vs_class_clusters_filtered.py
+```
+13. Temporal every molecular hopping in prominent classes over time
+```bash
+#INPUT : no manual input
+#OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg. "iii_CI_cluster_hop_count_chbsp.json"
+
+python3 step13_temporal_molecular_hopping_imp_classes.py
 ```
