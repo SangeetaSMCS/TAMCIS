@@ -106,37 +106,40 @@ python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py
 python3 step11_heatmap_time_vs_class_clusters_filtered.py
 ```
 12. Temporal every molecular hopping in prominent classes over time
-    ```bash
-    #INPUT : no manual input
-    #OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg.   
-    "iii_CI_cluster_hop_count_chbsp.json"
-    #ALERT : It is significant time consuming
-    
-    python3 step12_temporal_molecular_hopping_imp_classes.py
-    ```
+```bash
+#INPUT : no manual input
+#OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg.   
+"iii_CI_cluster_hop_count_chbsp.json"
+#ALERT : It is significant time consuming
+
+python3 step12_temporal_molecular_hopping_imp_classes.py
+```
 13. heatmap plot every molecule in the system temporal hopping in classes
-    ```bash
-    #INPUT:No manual input
-    #OUTPUT:png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
-    python3 step13_all_molecular_hopping_plot_v1.py
-    ```
+```bash
+#INPUT:No manual input
+#OUTPUT:png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
+python3 step13_all_molecular_hopping_plot_v1.py
+```
 14. heatmap plot selected molecule in the system temporal hopping in classes
-    ```bash
-    #INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
-    #OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
-    #---------------------------
-    #EDIT AT LINE 39-43, 84-91
-    #--------------------------
-    python3 step14_selected_molecular_hopping_plot_v1.py
-    ```
+```bash
+#INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
+#OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
+#---------------------------
+#EDIT AT LINE 39-43, 84-91
+#--------------------------
+python3 step14_selected_molecular_hopping_plot_v1.py
+```
 15. Move making : Extract tcl file of **selected** segnames (molecules participating in self assembly) for prominent classes for every timestep. Stored formate : e.g: frame_xxx/iii_category_segname_chbsp.tcl
-    ```bash
-    #INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
-    #OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
-    #---------------------------
-    #EDIT AT LINE 39-43, 84-91
-    #--------------------------
-    python3 step15_selected_molecular_hopping_for_movie.py
-    ```
+```bash
+#INPUT: json of segname list for selected molecules 
+#OUTPUT: tcl files for every frame inside frame_id
+#---------------------------
+#EDIT AT LINE 56-60
+#--------------------------
+python3 step15_selected_molecular_hopping_for_movie.py
+```
+16. Render VMD picture for each frames with each classes has different colors
+```bash
+```
  
 
