@@ -94,7 +94,7 @@ python3 step9_sort_gamma_clusters_bin_and_classes.py
 #-----------------------------
 # EDIT AT LINE 10
 #-----------------------------
-python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py 
+python3 step10_heatmap_time_all_possible_classwise_norm_sys_size_v1.py 
 ```
 11. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
 ```bash
@@ -129,17 +129,34 @@ python3 step13_all_molecular_hopping_plot_v1.py
 #--------------------------
 python3 step14_selected_molecular_hopping_plot_v1.py
 ```
-15. Move making : Extract tcl file of **selected** segnames (molecules participating in self assembly) for prominent classes for every timestep. Stored formate : e.g: frame_xxx/iii_category_segname_chbsp.tcl
+15. Assign VMD color ID for prominent class
+```bash
+#INPUT: Will ask for respective color VMD id through input with running the code
+#OUTPUT: json file VMD_color_prominent_class.json
+
+python3 step15_assign_VMD_color_for_pclasses.py
+```
+16. Move making : Extract tcl file of **selected** segnames (molecules participating in self assembly) for prominent classes for every timestep. Stored formate : e.g: frame_xxx/iii_category_segname_chbsp.tcl
 ```bash
 #INPUT: json of segname list for selected molecules 
-#OUTPUT: tcl files for every frame inside frame_id
+#OUTPUT: tcl files for every frame inside frame_id for respective class with color id set
 #---------------------------
 #EDIT AT LINE 56-60
 #--------------------------
-python3 step15_selected_molecular_hopping_for_movie.py
+python3 step16_selected_molecular_hopping_for_movie.py
 ```
-16. Render VMD picture for each frames with each classes has different colors
+17. Render VMD picture for each frames with each classes 
 ```bash
+#INPUT: set starting and ending frame number : LINE : 1 in step17_script_vmd_render_pic.sh
+#INPUT: peptide tag LINE: 56 in step17_visualize_CI_clusters_movie.tcl
+#OUTPUT : .tga files inside e.g. movie_iii
+chmod 777 step17_script_vmd_render_pic.sh
+./step17_script_vmd_render_pic.sh
 ```
- 
+ 18. Look at VMD graphics at each frame for selected molecules
+```bash
+#INPUT: set peptide lll LINE:56
+# set frame_id 499 LINE:66
+vmd -e step18_visualize_CI_clusters_timepoint.tcl
+```
 
