@@ -37,7 +37,7 @@ python3 step2_analysis_for_binning_parameter.py
 #-------------------
 python3 step3_manual_binning_parameters_general.py
 ```  
-5. Clustering on the binned data :
+4. Clustering on the binned data :
 ```bash
 #INPUT : input_TAMCIS.json and XXX_BINNED.xyz
 #OUTPUT : updated input_TAMCIS.json and clustering dat file eg. "iii_cluster_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.dat"
@@ -48,13 +48,13 @@ python3 step4_clustering_multi_D_binned_data_general.py
 ```
 NOTE : Copy to your analysis location : output cluster dat file and ALSO the input_TAMCIS.json [this file have been updated]
 
-6. Organize the clustering data  to json file format
+5. Organize the clustering data  to json file format
 ```bash
 #INPUT : No manual input , it automatically takes input_TAMCIS.json
 #OUTPUT : Sorted clusters json file eg. "iii_cluster_sorted_data_ee_em_mm_sc_pep_min_sample_1_without_time_tgap_1_BINNED.json" and updated input_TAMCIS.json
 python3 step5_organize_cluster_general.py
 ```
-7. Extarct stray molecules information timewise
+6. Extarct stray molecules information timewise
 NOTE : This calculation is done on Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
 Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 ```bash
@@ -62,7 +62,7 @@ Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 python3 step6_sizewise_cluster_gather.py
 ```
 
-8. This post processing step where stray molecules are removed from the clusters
+7. This post processing step where stray molecules are removed from the clusters
 ```bash
 #INPUT : shortcut tag, alphanumeric name and stray molecule information eg. "iii_all_cluster_of_size_1_1.json"
 #OUTPUT : clusters with alphanumeric name srored in json eg. "iii_cluster_alphanumeric_name_chbsp.json" and updated input_TAMCIS.json
@@ -72,19 +72,19 @@ python3 step6_sizewise_cluster_gather.py
 python3 step7_post_processing_stray_info_remove.py
 ```
 
-9. General sanity check for any mismatch and just run this code 
+8. General sanity check for any mismatch and just run this code 
 ```bash
 INPUT : No manual input need
 python3 step8_check_postprocess.py
 ```
-10. Class-wise classification and sorting
+9. Class-wise classification and sorting
 ```bash
 #INPUT: order parameter name to understand the class and colors assigned to each class
 #OUTPUT: json for classwise classification and respective gamma clusters in each class eg. "iii_sorted_dict_classes_gamma_cluster.json"
 # EDIT AT LINE 110-117
 python3 step9_sort_gamma_clusters_bin_and_classes.py
 ```
-11. Classwise looking into the % population evalution of $\Gamma$ clusters 
+10. Classwise looking into the % population evalution of $\Gamma$ clusters 
 ```bash
 #INPUT : Relative percentage population for heatmap dictionary for each class
 # For time being it has been set so no need to change
@@ -94,7 +94,7 @@ python3 step9_sort_gamma_clusters_bin_and_classes.py
 #-----------------------------
 python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py 
 ```
-12. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
+11. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
 ```bash
 #INPUT : percent_population ,cutoff_num_occurences, cutoff_num_mol_per_frame
 #OUTPUT : Heatmap plot eg. "iii_CI_cluster_heatmap_time_evolution_chbsp_v2.png", update input_TAMCIS.json with import prominent classes
@@ -103,7 +103,7 @@ python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py
 #------------------------
 python3 step11_heatmap_time_vs_class_clusters_filtered.py
 ```
-13. Temporal every molecular hopping in prominent classes over time
+12. Temporal every molecular hopping in prominent classes over time
 ```bash
 #INPUT : no manual input
 #OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg. "iii_CI_cluster_hop_count_chbsp.json"
@@ -111,13 +111,13 @@ python3 step11_heatmap_time_vs_class_clusters_filtered.py
 
 python3 step12_temporal_molecular_hopping_imp_classes.py
 ```
-14. heatmap plot every molecule in the system temporal hopping in classes
+13. heatmap plot every molecule in the system temporal hopping in classes
 ```bash
 #INPUT:No manual input
 #OUTPUT:png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
 python3 step13_all_molecular_hopping_plot_v1.py
 ```
-15. heatmap plot selected molecule in the system temporal hopping in classes
+14. heatmap plot selected molecule in the system temporal hopping in classes
 ```bash
 #INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
 #OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
