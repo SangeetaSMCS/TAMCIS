@@ -9,18 +9,18 @@ The workflow for TAMCIS is given as follows:
    Example Folder Structure :
    
 1. Determination of order parameters in $\Gamma$ space and value of p.  This involved data extraction in xyz format :
- XYZ file : peptide_name pep_H_end_end_contact pep_H_end_mid_contact pep_H_mid_mid_contact sidechain_pep_contact time [ order parameter list with time]
+   XYZ file : peptide_name pep_H_end_end_contact pep_H_end_mid_contact pep_H_mid_mid_contact sidechain_pep_contact time [ order parameter list with time]
 
-```bash
-#INPUT : peptide name, base_interaction_json, fiber_seganme_json, frame_end
-#        parameters_list = ["pep_H_end_end_contact","pep_H_end_middle_contact","pep_H_middle_middle_contact","sidechain_pep_contact"]
-#---- It calls general_code.py
-#OUTPUT : input_TAMCIS.json , This xyz file store every information so further TAMCIS code take this file as INPUT eg. #"iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time.xyz"
-# -----------------------
-# EDIT IN LINE 290-319
-#------------------------
-python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
-```
+  ```bash
+  #INPUT : peptide name, base_interaction_json, fiber_seganme_json, frame_end
+  #        parameters_list = ["pep_H_end_end_contact","pep_H_end_middle_contact","pep_H_middle_middle_contact","sidechain_pep_contact"]
+  #---- It calls general_code.py
+  #OUTPUT : input_TAMCIS.json , This xyz file store every information so further TAMCIS code take this file as INPUT eg. #"iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time.xyz"
+  # -----------------------
+  # EDIT IN LINE 290-319
+  #------------------------
+  python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
+  ```
 
 2. Look into time independent dataset of the all molecule for each order parameter seperately for taking decision about the manual bining step:
    Bar plot of the entire dataset. IT WILL TAKE INPUT "input_TAMCIS.json" automatically. JUST RUN the code
@@ -106,25 +106,37 @@ python3 step10_heatmap_time_all_possible_classwise_norm_sys_size.py
 python3 step11_heatmap_time_vs_class_clusters_filtered.py
 ```
 12. Temporal every molecular hopping in prominent classes over time
-```bash
-#INPUT : no manual input
-#OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg. "iii_CI_cluster_hop_count_chbsp.json"
-#ALERT : It is significant time consuming
-
-python3 step12_temporal_molecular_hopping_imp_classes.py
-```
+    ```bash
+    #INPUT : no manual input
+    #OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg.   
+    "iii_CI_cluster_hop_count_chbsp.json"
+    #ALERT : It is significant time consuming
+    
+    python3 step12_temporal_molecular_hopping_imp_classes.py
+    ```
 13. heatmap plot every molecule in the system temporal hopping in classes
-```bash
-#INPUT:No manual input
-#OUTPUT:png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
-python3 step13_all_molecular_hopping_plot_v1.py
-```
+    ```bash
+    #INPUT:No manual input
+    #OUTPUT:png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
+    python3 step13_all_molecular_hopping_plot_v1.py
+    ```
 14. heatmap plot selected molecule in the system temporal hopping in classes
-```bash
-#INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
-#OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
-#---------------------------
-#EDIT AT LINE 39-43, 84-91
-#--------------------------
-python3 step14_selected_molecular_hopping_plot_v1.py
-```
+    ```bash
+    #INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
+    #OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
+    #---------------------------
+    #EDIT AT LINE 39-43, 84-91
+    #--------------------------
+    python3 step14_selected_molecular_hopping_plot_v1.py
+    ```
+15. Move making : Extract tcl file of **selected** segnames (molecules participating in self assembly) for prominent classes for every timestep. Stored formate : e.g: frame_xxx/iii_category_segname_chbsp.tcl
+    ```bash
+    #INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
+    #OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
+    #---------------------------
+    #EDIT AT LINE 39-43, 84-91
+    #--------------------------
+    python3 step15_selected_molecular_hopping_for_movie.py
+    ```
+ 
+
