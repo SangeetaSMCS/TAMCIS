@@ -57,7 +57,6 @@ NOTE : Copy to your analysis location : output cluster dat file and ALSO the inp
 python3 step5_organize_cluster_general.py
 ```
 6. Extarct stray molecules information timewise
-NOTE : This calculation is done on Argha's computer, example path : /media/argha/home_21/my_work/analysis/iii-600-mol-200A-box/pep-pep-contact/post_process/cluster_analysis
 Copy : iii_all_cluster_of_size_1_1.json (example) to your working location.
 ```bash
 # LINE 52-53 provide the peptide name and num_frame
@@ -94,8 +93,18 @@ python3 step9_sort_gamma_clusters_bin_and_classes.py
 #-----------------------------
 # EDIT AT LINE 10
 #-----------------------------
-python3 step10_heatmap_time_all_possible_classwise_norm_sys_size_v1.py 
+python3 step10_heatmap_time_all_possible_classwise_norm_sys_size_v1.py
 ```
+
+11.
+```bash
+#INPUT : No manual input need
+#OUTPUT : 
+python3 analysis2_temporal_evol_all_classes_heatmap_n_lineplot.py
+```
+13. analysis_new1_heatmap_class_vs_clustersize_norm_csize_v2.py
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 11. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
 ```bash
 #INPUT : percent_population ,cutoff_num_occurences, cutoff_num_mol_per_frame
