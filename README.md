@@ -105,10 +105,17 @@ python3 step10_heatmap_time_all_possible_classwise_norm_sys_size_v1.py
 #-----------------------------
 python3 analysis2_temporal_evol_all_classes_heatmap_n_lineplot.py
 ```
-13. analysis_new1_heatmap_class_vs_clustersize_norm_csize_v2.py
+12. Correlation of spatial clusters with respect to the $\Gamma$-classes : 2D-Heatmap for time independent data of molecular clusters of all sizes partitioned into desire size binning wrt. the prominent $\Gamma$ classes.   
+```bash
+#INPUT : all_clusters_of_size_x_y.json, x,y belongs [2,6,11,21,51,101,151,"above"]
+#OUTPUT : 2D Heatmap : eg. "iii_corr_heatmap_clssize_class.png"
+#------------------------------------
+#
+#------------------------------------
+python3 step12_heatmap_class_vs_clustersize_norm_csize_v2.py
+```
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-11. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
+13. Filtering those $\Gamma$ clusters based on  population over time and looking into the time evolution of those prominent $\Gamma$ clusters. For that we have put 2 filters : 1) population per timestep for $\gamma$ cluster atleast cross the  cutoff_num_mol_per_frame 2) $\Gamma$ cluster must present atleast  cutoff_num_occurences time out of the total length of the trajectory
 ```bash
 #INPUT : percent_population ,cutoff_num_occurences, cutoff_num_mol_per_frame
 #OUTPUT : Heatmap plot eg. "iii_CI_cluster_heatmap_time_evolution_chbsp_v2.png", update input_TAMCIS.json with import prominent classes
@@ -117,7 +124,7 @@ python3 analysis2_temporal_evol_all_classes_heatmap_n_lineplot.py
 #------------------------
 python3 step11_heatmap_time_vs_class_clusters_filtered.py
 ```
-12. Temporal every molecular hopping in prominent classes over time
+14. Temporal every molecular hopping in prominent classes over time
 ```bash
 #INPUT : no manual input
 #OUTPUT : every molecular temporal hopping stored in csv file eg. "iii_temporal_hopping_chbsp.csv" and count for number of hopping exist for each prominent classes respect to $\Gamma$ clusters in json file eg.   
