@@ -17,7 +17,7 @@ The workflow for TAMCIS is given as follows:
   #---- It calls general_code.py
   #OUTPUT : input_TAMCIS.json , This xyz file store every information so further TAMCIS code take this file as INPUT eg. #"iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time.xyz"
   # -----------------------
-  # EDIT IN LINE 290-319
+  # EDIT LINES 290-319
   #------------------------
   python3 step1_multi_D_OP_data_extraction_trajectory_xyz_general.py
   ```
@@ -35,7 +35,7 @@ python3 step2_analysis_for_binning_parameter.py
 #INPUT : INSIDE CODE mention the binning for individual order parameter, as the INDEX OF THE ORDER PARAMETER STARTS FROM 1 and store in dictionary formate
 #OUTPUT : updated input_TAMCIS.json and  the binned xyz file eg. "iii_pep_H_end_end_contact_pep_H_end_mid_contact_pep_H_mid_mid_contact_sidechain_pep_contact_time_BINNED.xyz"
 #-------------------
-# EDIT AT LINE : 10
+# EDIT LINE : 10
 #-------------------
 python3 step3_manual_binning_parameters_general.py
 ```  
@@ -82,7 +82,7 @@ python3 step8_check_postprocess.py
 ```bash
 #INPUT: order parameter name to understand the class and colors assigned to each class
 #OUTPUT: json for classwise classification and respective $\Gamma$ clusters in each class eg. "iii_sorted_dict_classes_gamma_cluster.json"
-# EDIT AT LINE 110-117
+# EDIT LINE 110-117
 python3 step9_sort_gamma_clusters_bin_and_classes.py
 ```
 10. Classwise looking into the % population evalution of $\Gamma$ clusters 
@@ -91,7 +91,7 @@ python3 step9_sort_gamma_clusters_bin_and_classes.py
 # For time being it has been set so no need to change
 #OUTPUT : $\leq 2^p-1$ Heatmap plots
 #-----------------------------
-# EDIT AT LINE 10
+# EDIT LINE 10
 #-----------------------------
 python3 step10_heatmap_time_all_possible_classwise_norm_sys_size_v1.py
 ```
@@ -100,6 +100,9 @@ python3 step10_heatmap_time_all_possible_classwise_norm_sys_size_v1.py
 ```bash
 #INPUT : No manual input need
 #OUTPUT : Line plot : eg., iii_lineplot_classes_vs_time.png
+# ---------------------------
+# 
+#-----------------------------
 python3 analysis2_temporal_evol_all_classes_heatmap_n_lineplot.py
 ```
 13. analysis_new1_heatmap_class_vs_clustersize_norm_csize_v2.py
@@ -110,7 +113,7 @@ python3 analysis2_temporal_evol_all_classes_heatmap_n_lineplot.py
 #INPUT : percent_population ,cutoff_num_occurences, cutoff_num_mol_per_frame
 #OUTPUT : Heatmap plot eg. "iii_CI_cluster_heatmap_time_evolution_chbsp_v2.png", update input_TAMCIS.json with import prominent classes
 #------------------------
-# EDIT AT LINE 9-11
+# EDIT LINES 9-11
 #------------------------
 python3 step11_heatmap_time_vs_class_clusters_filtered.py
 ```
@@ -134,7 +137,7 @@ python3 step13_all_molecular_hopping_plot_v1.py
 #INPUT: json of segname list for selected molecules , selected indices if don't want to look at all segnames
 #OUTPUT: png eg. "iii_temporal_hopping_for_fiber1_chbsp_v1.png"
 #---------------------------
-#EDIT AT LINE 39-43, 84-91
+#EDIT LINES 39-43, 84-91
 #--------------------------
 python3 step14_selected_molecular_hopping_plot_v1.py
 ```
@@ -150,7 +153,7 @@ python3 step15_assign_VMD_color_for_pclasses.py
 #INPUT: json of segname list for selected molecules 
 #OUTPUT: tcl files for every frame inside frame_id for respective class with color id set
 #---------------------------
-#EDIT AT LINE 56-60
+#EDIT LINES 56-60
 #--------------------------
 python3 step16_selected_molecular_hopping_for_movie.py
 ```
