@@ -81,7 +81,7 @@ python3 step8_check_postprocess.py
 9. Class-wise classification and sorting
 ```bash
 #INPUT: order parameter name to understand the class and colors assigned to each class
-#OUTPUT: json for classwise classification and respective gamma clusters in each class eg. "iii_sorted_dict_classes_gamma_cluster.json"
+#OUTPUT: json for classwise classification and respective $\Gamma$ clusters in each class eg. "iii_sorted_dict_classes_gamma_cluster.json"
 # EDIT AT LINE 110-117
 python3 step9_sort_gamma_clusters_bin_and_classes.py
 ```
@@ -96,10 +96,10 @@ python3 step9_sort_gamma_clusters_bin_and_classes.py
 python3 step10_heatmap_time_all_possible_classwise_norm_sys_size_v1.py
 ```
 
-11.
+11. Self-assembly mechanism in terms of evolution of $\Gamma$-classes
 ```bash
 #INPUT : No manual input need
-#OUTPUT : 
+#OUTPUT : Line plot : eg., iii_lineplot_classes_vs_time.png
 python3 analysis2_temporal_evol_all_classes_heatmap_n_lineplot.py
 ```
 13. analysis_new1_heatmap_class_vs_clustersize_norm_csize_v2.py
